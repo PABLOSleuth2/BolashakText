@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Music Player</title>
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            font-family: Arial;
+            color: white;
+        }
+
+        .player {
+            backdrop-filter: blur(10px);
+            background: rgba(255,255,255,0.1);
+            padding: 30px;
+            border-radius: 20px;
+            text-align: center;
+            width: 250px;
+        }
+
+        button {
+            padding: 12px 25px;
+            border: none;
+            border-radius: 30px;
+            font-size: 16px;
+            cursor: pointer;
+            background: white;
+            color: black;
+        }
+
+        input {
+            width: 100%;
+            margin-top: 15px;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="player">
+    <h2 id="status">Музыка тоқтаулы</h2>
+
+    <audio id="audio">
+        <source src="onestop.mp3" type="audio/mpeg">
+    </audio>
+
+    <button onclick="toggleMusic()">▶️ Play</button>
+
+    <input type="range" id="progress" value="0">
+
+</div>
+
+<script>
+    const audio = document.getElementById("audio");
+    const status = document.getElementById("status");
+    const progress = document.getElementById("progress");
+
+    function toggleMusic() {
+        if (audio.paused) {
+            audio.play();
+            status.innerText = "🎵 Музыка ойнап жатыр";
+        } else {
+            audio.pause();
+            status.innerText = "⏸ Музыка тоқтады";
+        }
+    }
+
+    audio.ontimeupdate = function() {
+        progress.value = (audio.currentTime / audio.duration) * 100;
+    }
+
+    progress.oninput = function() {
+        audio.currentTime = (progress.value / 100) * audio.duration;
+    }
+</script>
+
+</body>
+</html>
