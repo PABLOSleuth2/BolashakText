@@ -3,41 +3,50 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Modern CS Dashboard</title>
+    <title>Advanced CS Hardware Dashboard</title>
     <style>
         :root {
-            --bg: #0f172a;
-            --card-bg: rgba(30, 41, 59, 0.7);
-            --accent: #38bdf8;
-            --text: #f1f5f9;
+            --bg: #050505;
+            --card-bg: rgba(20, 20, 20, 0.9);
+            --accent-blue: #0ea5e9;
+            --accent-red: #dc2626;
+            --accent-green: #16a34a;
+            --text-primary: #f8fafc;
+            --text-secondary: #94a3b8;
         }
 
         body {
             background-color: var(--bg);
-            color: var(--text);
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: var(--text-primary);
+            font-family: 'Inter', -apple-system, sans-serif;
             display: flex;
             flex-direction: column;
             align-items: center;
-            padding: 40px;
+            padding: 50px 20px;
             margin: 0;
+            line-height: 1.6;
         }
 
-        /* Modern Marquee Replacement */
+        /* Modern Scrolling Header Replacement */
         .scrolling-header {
             width: 100%;
             overflow: hidden;
-            background: linear-gradient(90deg, transparent, var(--accent), transparent);
-            padding: 10px 0;
-            margin-bottom: 30px;
+            background: #111;
+            border-top: 1px solid #222;
+            border-bottom: 1px solid #222;
+            padding: 12px 0;
+            margin-bottom: 40px;
             white-space: nowrap;
         }
 
         .scrolling-text {
             display: inline-block;
-            font-weight: bold;
-            letter-spacing: 2px;
-            animation: scroll-left 15s linear infinite;
+            font-size: 0.9rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: var(--accent-blue);
+            animation: scroll-left 25s linear infinite;
         }
 
         @keyframes scroll-left {
@@ -45,22 +54,46 @@
             100% { transform: translateX(-100%); }
         }
 
-        /* Beautiful Table Styling */
-        .data-container {
-            background: var(--card-bg);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 15px;
-            padding: 25px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        .container {
             width: 100%;
-            max-width: 800px;
+            max-width: 1000px;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border: 1px solid #222;
+            border-radius: 12px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
         }
 
         h2 {
-            color: var(--accent);
-            border-bottom: 2px solid var(--accent);
-            padding-bottom: 10px;
+            margin-top: 0;
+            font-size: 1.5rem;
+            color: var(--accent-blue);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .sub-card {
+            background: rgba(255, 255, 255, 0.02);
+            padding: 20px;
+            border-radius: 8px;
+            border: 1px solid #333;
+        }
+
+        .sub-card h3 {
+            margin-top: 0;
+            font-size: 1.1rem;
+            color: var(--text-primary);
         }
 
         table {
@@ -69,28 +102,27 @@
             margin-top: 20px;
         }
 
-        th, td {
-            padding: 15px;
-            text-align: left;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
         th {
-            background-color: rgba(56, 189, 248, 0.1);
-            color: var(--accent);
-            text-transform: uppercase;
+            text-align: left;
+            padding: 15px;
+            background: #111;
             font-size: 0.8rem;
+            color: var(--accent-blue);
+            text-transform: uppercase;
         }
 
-        tr:hover {
-            background-color: rgba(255, 255, 255, 0.05);
-            transition: 0.3s;
+        td {
+            padding: 15px;
+            border-bottom: 1px solid #222;
+            font-size: 0.9rem;
         }
 
-        .cs-concept {
-            margin-top: 30px;
-            font-style: italic;
-            color: #94a3b8;
+        .status-w { color: var(--accent-green); font-weight: bold; }
+        .status-l { color: var(--accent-red); font-weight: bold; }
+
+        .desc {
+            color: var(--text-secondary);
+            font-size: 0.85rem;
         }
     </style>
 </head>
@@ -98,41 +130,59 @@
 
     <div class="scrolling-header">
         <div class="scrolling-text">
-            COMPUTER SCIENCE: АЛГОРИТМДЕР ЖӘНЕ ДЕРЕКТЕР ҚҰРЫЛЫМЫ — ШЫНДЫҚ ОСЫНДА! 
+            SYSTEM ARCHITECTURE: CPU | GPU | NVME | LINUX | FREEBSD | WINDOWS | COMPUTATIONAL TRUTH
         </div>
     </div>
 
-    <div class="data-container">
-        <h2>Алгоритм Күрделілігі (Complexity)</h2>
-        <table>
-            <thead>
-                <tr>
-                    <th>Белгіленуі (Notation)</th>
-                    <th>Атауы (Name)</th>
-                    <th>Тиімділігі (Efficiency)</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>O(1)</td>
-                    <td>Тұрақты (Constant)</td>
-                    <td style="color: #4ade80;">Керемет (W)</td>
-                </tr>
-                <tr>
-                    <td>O(n)</td>
-                    <td>Сызықтық (Linear)</td>
-                    <td style="color: #facc15;">Орташа</td>
-                </tr>
-                <tr>
-                    <td>O(n²)</td>
-                    <td>Квадраттық (Quadratic)</td>
-                    <td style="color: #f87171;">Нашар (L)</td>
-                </tr>
-            </tbody>
-        </table>
+    <div class="container">
+        <div class="card">
+            <h2>Аппараттық Қамтамасыз Ету (Hardware Science)</h2>
+            <div class="grid">
+                <div class="sub-card">
+                    <h3>Процессорлар (Computing)</h3>
+                    <p class="desc"><strong>CPU:</strong> Күрделі логикалық тапсырмаларды орындауға арналған. Жүйенің басқару орталығы.</p>
+                    <p class="desc"><strong>GPU:</strong> Мыңдаған ядролар арқылы параллельді есептеулер жүргізеді. Графика мен деректерді өңдеуде тиімді.</p>
+                </div>
+                <div class="sub-card">
+                    <h3>Деректерді сақтау (Storage)</h3>
+                    <p class="desc"><strong>SATA SSD:</strong> Ескі интерфейс. Жылдамдығы шектеулі (600 MB/s). Бұл қазіргі стандарттар бойынша төмен нәтиже.</p>
+                    <p class="desc"><strong>NVMe SSD:</strong> PCIe шинасы арқылы жұмыс істейді. Жылдамдығы 7000 MB/s дейін жетеді. Нағыз Alpha өнімділігі.</p>
+                </div>
+            </div>
+        </div>
 
-        <div class="cs-concept">
-            <p><strong>Science Fact:</strong> Алгоритмнің тиімділігін білу — бұл жай ғана код жазу емес, бұл ресурстарды үнемдеу туралы ғылым. Нағыз программист әрқашан O(n²) - тан қашуға тырысады. 💔</p>
+        <div class="card">
+            <h2>Операциялық Жүйелер (OS Efficiency)</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Жүйе</th>
+                        <th>Kernel</th>
+                        <th>Өнімділік</th>
+                        <th>Техникалық Сипаттама</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Windows</td>
+                        <td>NT</td>
+                        <td class="status-l">Төмен (Heavy)</td>
+                        <td class="desc">Жүйелік ресурстарды көп тұтынады. Төменгі деңгейлі темірлер үшін тиімсіз.</td>
+                    </tr>
+                    <tr>
+                        <td>Linux</td>
+                        <td>Monolithic</td>
+                        <td class="status-w">Жоғары (Alpha)</td>
+                        <td class="desc">Ашық бастапқы код. Оңтайландыру мүмкіндігі шексіз. Ресурстарды үнемді пайдаланады.</td>
+                    </tr>
+                    <tr>
+                        <td>FreeBSD</td>
+                        <td>FreeBSD</td>
+                        <td class="status-w">Тұрақты (Solid)</td>
+                        <td class="desc">UNIX негізіндегі жүйе. Желілік өнімділігі мен тұрақтылығы бойынша көшбасшы.</td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
     </div>
 
